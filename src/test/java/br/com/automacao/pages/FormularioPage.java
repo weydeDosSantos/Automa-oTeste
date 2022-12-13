@@ -61,7 +61,7 @@ public class FormularioPage {
 	}
 	
 	public String mensagem () {
-		return dsl.obterTexto(By.xpath("//div[@class='form-group gcrud-form-group'][1]"));
+		return dsl.obterTexto(By.tagName("p"));
 	}
 
 }
