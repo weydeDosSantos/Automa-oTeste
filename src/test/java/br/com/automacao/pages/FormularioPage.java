@@ -2,66 +2,77 @@ package br.com.automacao.pages;
 
 import org.openqa.selenium.By;
 
-import br.com.automacao.core.DSL;
+import br.com.automacao.core.BasePage;
 
-public class FormularioPage {
-
-	DSL dsl = new DSL();
+public class FormularioPage extends BasePage {
 
 	public void nomeCliente(String nome) {
-		dsl.escreve("field-customerName", nome);
+		escreve("field-customerName", nome);
 	}
 
 	public void sobreNome(String sobreNome) {
-		dsl.escreve("field-customerName", sobreNome);
+		escreve("field-contactLastName", sobreNome);
 	}
 
 	public void nomeDoContato(String nomeDoContato) {
-		dsl.escreve("field-contactFirstName", nomeDoContato);
+		escreve("field-contactFirstName", nomeDoContato);
 	}
 
 	public void telefone(String fone) {
-		dsl.escreve("field-phone", fone);
+		escreve("field-phone", fone);
 	}
 
 	public void enderecoLinha1(String endereco) {
-		dsl.escreve("field-addressLine1", endereco);
+		escreve("field-addressLine1", endereco);
 	}
 
 	public void enderecoLinha2(String endereco) {
-		dsl.escreve("field-addressLine2", endereco);
+		escreve("field-addressLine2", endereco);
 	}
 
 	public void cidade(String cidade) {
-		dsl.escreve("field-city", cidade);
+		escreve("field-city", cidade);
 	}
 
 	public void estado(String estado) {
-		dsl.escreve("field-state", estado);
+		escreve("field-state", estado);
 	}
 
 	public void codigoPostal(String postal) {
-		dsl.escreve("field-postalCode", postal);
+		escreve("field-postalCode", postal);
 	}
 
 	public void pais(String pais) {
-		dsl.escreve("field-country", pais);
+		escreve("field-country", pais);
 	}
 
 	public void doEmpregador(String doEmpregador) {
-		dsl.escreve("field-salesRepEmployeeNumber", doEmpregador);
+		escreve("field-salesRepEmployeeNumber", doEmpregador);
 	}
 
 	public void limiteCredito(String credito) {
-		dsl.escreve("field-creditLimit", credito);
+		escreve("field-creditLimit", credito);
 	}
 
 	public void salvar() {
-		dsl.clica(By.id("form-button-save"));
+		clica(By.id("form-button-save"));
 	}
-	
-	public String mensagem () {
-		return dsl.obterTexto(By.tagName("p"));
+
+	public void clicarLink() {
+		clica(By.linkText("Go back to list"));
+
+	}
+
+	public String mensagem() {
+		return obterTexto(By.tagName("p"));
+	}
+
+	public void esperaLink() {
+		espera(10, By.linkText("Go back to list"));
+	}
+
+	public void esperaCheckBox() {
+		espera(10, By.xpath("//tbody/tr/td/input"));
 	}
 
 }

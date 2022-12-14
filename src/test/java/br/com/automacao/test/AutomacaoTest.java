@@ -1,58 +1,67 @@
 package br.com.automacao.test;
 
-import static br.com.automacao.core.DriverFactory.getDriver;
-import static br.com.automacao.core.DriverFactory.killDriver;
-
-import java.time.Duration;
-
-import org.junit.After;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
-import br.com.automacao.core.DSL;
+import br.com.automacao.core.BaseTest;
 import br.com.automacao.pages.FormularioPage;
 import br.com.automacao.pages.InicialPage;
 
-public class AutomacaoTest {
+public class AutomacaoTest extends BaseTest {
 
-	DSL dsl = new DSL();
-	InicialPage inicPage = new InicialPage();
-	FormularioPage formPage = new FormularioPage();
+	InicialPage inicialPage = new InicialPage();
+	FormularioPage formularioPage = new FormularioPage();
 
-	@Before
-	public void acessaPagina() {
-		System.setProperty("webdriver.chrome.driver", "./driver/chromedriver.exe");
-		getDriver().get("https://www.grocerycrud.com/v1.x/demo/my_boss_is_in_a_hurry/bootstrap");
-		getDriver().manage().window().maximize();
-		getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-	}
+	@Test
+	public void Desafio1() {
 
-	@After
-	public void fecharBrowser() {
-		killDriver();
+		inicialPage.selecionarCombo("Bootstrap V4 Theme");
+		inicialPage.botaoAddCliente();
+		formularioPage.nomeCliente("Teste Sicredi");
+		formularioPage.sobreNome("Teste");
+		formularioPage.nomeDoContato("weyde");
+		formularioPage.telefone("51 9999-9999");
+		formularioPage.enderecoLinha1("Av Assis Brasil, 3970");
+		formularioPage.enderecoLinha2("Torre D");
+		formularioPage.cidade("Porto Alegre");
+		formularioPage.estado("RS");
+		formularioPage.codigoPostal("91000-000");
+		formularioPage.pais("Brasil");
+		formularioPage.doEmpregador("Fixter");
+		formularioPage.limiteCredito("200");
+		formularioPage.salvar();
+		formularioPage.esperaLink();
+		Assert.assertEquals("Your data has been successfully stored into the database. Edit Record or Go back to list",
+				formularioPage.mensagem());
 	}
 
 	@Test
-	public void test() {
+	public void Desafio2() {
 
-		inicPage.selecionarCombo("Bootstrap V4 Theme");
-		inicPage.botaoAddCliente();
-		formPage.nomeCliente("Teste Sicredi");
-		formPage.sobreNome("Teste");
-		formPage.nomeDoContato("weyde");
-		formPage.telefone("51 9999-9999");
-		formPage.enderecoLinha1("Av Assis Brasil, 3970");
-		formPage.enderecoLinha2("Torre D");
-		formPage.cidade("Porto Alegre");
-		formPage.estado("RS");
-		formPage.codigoPostal("91000-000");
-		formPage.pais("Brasil");
-		formPage.doEmpregador("Fixter");
-		formPage.limiteCredito("200");
-		formPage.salvar();
-		Assert.assertEquals("Your data has been successfully stored into the database. Edit Record or Go back to list",
-				formPage.mensagem());
-		System.out.println();
+		inicialPage.selecionarCombo("Bootstrap V4 Theme");
+		inicialPage.botaoAddCliente();
+		formularioPage.nomeCliente("Teste Sicredi");
+		formularioPage.sobreNome("Teste");
+		formularioPage.nomeDoContato("weyde");
+		formularioPage.telefone("51 9999-9999");
+		formularioPage.enderecoLinha1("Av Assis Brasil, 3970");
+		formularioPage.enderecoLinha2("Torre D");
+		formularioPage.cidade("Porto Alegre");
+		formularioPage.estado("RS");
+		formularioPage.codigoPostal("91000-000");
+		formularioPage.pais("Brasil");
+		formularioPage.doEmpregador("Fixter");
+		formularioPage.limiteCredito("200");
+		formularioPage.salvar();
+		formularioPage.esperaLink();
+		formularioPage.clicarLink();
+		inicialPage.procurarCliente("Teste Sicredi");
+		formularioPage.esperaCheckBox();
+		inicialPage.checkBox();
+		inicialPage.botaoDeleta();
+		Assert.assertEquals("Are you sure that you want to delete this 1 item?", inicialPage.obterTextoCaixaDialogo());
+		inicialPage.botaoDeletaCaixaDialogo();
+		inicialPage.esperaPopUp();
+		Assert.assertEquals("Your data has been successfully deleted from the database.", inicialPage.obterTextoPopUp());
 	}
 }
