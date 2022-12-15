@@ -1,4 +1,4 @@
-package br.com.automacao.core;
+package br.com.automacaoWeb.core;
 
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;

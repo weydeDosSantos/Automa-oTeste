@@ -1,8 +1,8 @@
-package br.com.automacao.pages;
+package br.com.automacaoWeb.pages;
 
 import org.openqa.selenium.By;
 
-import br.com.automacao.core.BasePage;
+import br.com.automacaoWeb.core.BasePage;
 
 public class FormularioPage extends BasePage {
 

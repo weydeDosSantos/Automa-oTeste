@@ -1,7 +1,7 @@
-package br.com.automacao.core;
+package br.com.automacaoWeb.core;
 
-import static br.com.automacao.core.DriverFactory.getDriver;
-import static br.com.automacao.core.DriverFactory.killDriver;
+import static br.com.automacaoWeb.core.DriverFactory.getDriver;
+import static br.com.automacaoWeb.core.DriverFactory.killDriver;
 
 import java.io.File;
 import java.io.IOException;

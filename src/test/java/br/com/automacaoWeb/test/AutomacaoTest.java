@@ -1,11 +1,11 @@
-package br.com.automacao.test;
+package br.com.automacaoWeb.test;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import br.com.automacao.core.BaseTest;
-import br.com.automacao.pages.FormularioPage;
-import br.com.automacao.pages.InicialPage;
+import br.com.automacaoWeb.core.BaseTest;
+import br.com.automacaoWeb.pages.FormularioPage;
+import br.com.automacaoWeb.pages.InicialPage;
 
 public class AutomacaoTest extends BaseTest {
 

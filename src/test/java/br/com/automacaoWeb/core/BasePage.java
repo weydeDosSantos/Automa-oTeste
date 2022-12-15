@@ -1,6 +1,6 @@
-package br.com.automacao.core;
+package br.com.automacaoWeb.core;
 
-import static br.com.automacao.core.DriverFactory.getDriver;
+import static br.com.automacaoWeb.core.DriverFactory.getDriver;
 
 import java.time.Duration;
 

@@ -1,4 +1,4 @@
-package br.com.automacao.core;
+package br.com.automacaoWeb.core;
 
 public class Propriedades {
 
